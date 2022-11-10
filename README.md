@@ -1,6 +1,8 @@
 # 5-Axis-3D-Printer-Config
 Reprap firmware config file for Auburn University 5 Axis 3D Printer senior design project.
 
+A-Axis is the mandrel (rotation about the x-axis)
+B-Axis is the printer head rotation (
 
 To change microstepping, open the config file and change the values in the M350 command. 
 
