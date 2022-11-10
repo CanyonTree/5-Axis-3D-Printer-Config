@@ -20,7 +20,7 @@ M584 X0.0 Y0.1 Z0.2 A0.3 B0.4 E0.5                          ; set drive mapping
 M350 X1 Y1 Z1 A1 B1 E16 I1                                  ; configure microstepping with interpolation
 M92 X100.00 Y5.00 Z100.00 A2.381 B80.00 E420.00 S1          ; set steps per mm (steps per unit?)
 M566 X200.00 Y200.00 Z20.00 A20.00 B20.00 E120.00           ; set maximum instantaneous speed changes (mm/min)
-M203 X600.00 Y600.00 Z45.00 A120.00 B45.00 E1200.00         ; set maximum speeds (mm/min)
+M203 X600.00 Y600.00 Z60.00 A120.00 B45.00 E1200.00         ; set maximum speeds (mm/min)
 M201 X10.00 Y10.00 Z5.00 A5.00 B20.00 E250.00               ; set accelerations (mm/s^2)
 M906 X1000 Y1000 Z1000 A2800 B800 E800 I30                  ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                                     ; Set idle timeout (Time to motor idle in seconds)
@@ -29,7 +29,7 @@ M84 S30                                                     ; Set idle timeout (
 M208 X137 Y-233 Z84 S1                             ; set axis minima
 M208 X641 217 Z363 S0                              ; set axis maxima
 
-; Endstops
+; Endstops            
 M574 X2 S1 P"!io4.in"                         ; configure switch-type (e.g. microswitch) endstop for high end on X via pin io4.in
 M574 X1 S1 P"!io3.in"                         ; configure switch-type (e.g. microswitch) endstop for low end on X via pin io3.in
 M574 Y2 S1 P"!io6.in"                         ; configure switch-type (e.g. microswitch) endstop for high end on Y via pin io5.in
@@ -48,7 +48,7 @@ M557 X15:215 Y15:195 S20                     ; define mesh grid
 
 ; Heaters
 ; M308 S0 P"temp0" Y"thermistor" T100000 B4138 ; configure sensor 0 as thermistor on pin temp0
-; M950 H0 C"out1" T0     ;Qnnn <- PWM Frequency in Hz                      ; create bed heater output on out1 and map it to sensor 0
+; M950 H0 C"out1" T0                           ;Qnnn <- PWM Frequency in Hz                      ; create bed heater output on out1 and map it to sensor 0
 ; M307 H0 B0 S1.00                             ; disable bang-bang mode for the bed heater and set PWM limit
 ; M140 H0                                      ; map heated bed to heater 0
 ; M143 H0 S120                                 ; set temperature limit for heater 0 to 120C
@@ -59,8 +59,8 @@ M557 X15:215 Y15:195 S20                     ; define mesh grid
 ; M143 H1 S280                                 ; set temperature limit for heater 1 to 280C
 
 ; Fans
-M950 F0 C"out7"                              ; create fan 0 on pin out4 and set its frequency
-M106 P255                                    ; set fan 0 value. Thermostatic control is turned off
+M950 F0 C"OUT 7"                               ; create fan 0 on pin out4 and set its frequency
+M106 P255                                      ; set fan 0 value. Thermostatic control is turned off
 ; M950 F1 C"out5" Q500                         ; create fan 1 on pin out5 and set its frequency
 ; M106 P1 S1 H1 T45                            ; set fan 1 value. Thermostatic control is turned on
 

@@ -10,6 +10,8 @@ G1 H1 X-235 Y-215 F360  ; move slowly to X and Y axis endstops once more (second
 G1 H1 Z-205 F360        ; move Z down stopping at the endstop
 G90                     ; absolute positioning
 G92 Z0                  ; set Z position to axis minimum (you may want to adjust this)
+G92 A0                  ; Set current location to be the 0 location for the A axis
+
 
 ; Uncomment the following lines to lift Z after probing
 ;G91                    ; relative positioning
